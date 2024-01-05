@@ -1,6 +1,6 @@
 <?php
-
 use Illuminate\Support\Facades\Route;
+include('viewRoutes.php');
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +13,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+
