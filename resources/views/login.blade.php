@@ -15,20 +15,19 @@
                                 </a>
                                 <form>
                                     <div class="mb-3">
-                                        <label for="exampleInputEmail1" class="form-label">Username</label>
-                                        <input type="email" class="form-control" name="email" id="exampleInputEmail1"
-                                            aria-describedby="emailHelp">
+                                        <label for="Email" class="form-label">Email</label>
+                                        <input type="email" class="form-control" name="email" id="Email"
+                                            aria-describedby="emailHelp" required>
                                     </div>
                                     <div class="mb-4">
-                                        <label for="exampleInputPassword1" class="form-label">Password</label>
+                                        <label for="Password" class="form-label">Password</label>
                                         <input type="password" class="form-control" name="password"
-                                            id="exampleInputPassword1">
+                                            id="Password" required>
                                     </div>
                                     <div class="d-flex align-items-center justify-content-between mb-4">
                                         <a class="text-primary fw-bold" href="./index.html">Forgot Password ?</a>
                                     </div>
-                                    <a href="./index.html" class="btn btn-primary w-100 py-8 fs-4 mb-4 rounded-2">Sign
-                                        In</a>
+                                    <input type="submit" class="btn btn-primary w-100 py-8 fs-4 mb-4 rounded-2" value="Sign In">
                                     <div class="d-flex align-items-center justify-content-center">
                                         <p class="fs-4 mb-0 fw-bold">New to Modernize?</p>
                                         <a class="text-primary fw-bold ms-2" href="{{url('/signup')}}">Create an

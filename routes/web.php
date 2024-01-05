@@ -1,6 +1,5 @@
 <?php
 use Illuminate\Support\Facades\Route;
-include('viewRoutes.php');
 
 /*
 |--------------------------------------------------------------------------
@@ -12,6 +11,14 @@ include('viewRoutes.php');
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('/', function () {
+    return redirect('/login');
+});
+Route::view('/login', 'login');
+Route::view('/signup', 'signup');
+Route::view('/dashboard', 'dashboard.index');
+Route::view('/mail', 'component.mails.thank-you');
 
 
 
