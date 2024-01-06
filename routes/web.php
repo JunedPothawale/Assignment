@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\MailController;
+use App\Mail\SignUp;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +16,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/login');
 });
+Route::view('/login', 'login');
+Route::view('/signup', 'signup');
+Route::view('/dashboard', 'dashboard.index');
+Route::get('/mailto', function(){
+    (new MailController)->signupMail('Juned Pothawale','mojuned251@gmail.com',"Hello");
+});
+
+
+
