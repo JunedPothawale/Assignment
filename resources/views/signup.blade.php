@@ -1,4 +1,4 @@
-@extends('component.auth-master')
+@extends('component.master.auth-master')
 
 @section('auth-content')
     <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
@@ -13,7 +13,8 @@
                                 <a href="./index.html" class="text-nowrap logo-img text-center d-block py-3 w-100">
                                     <img src="../assets/images/logos/dark-logo.svg" width="180" alt="">
                                 </a>
-                                <form>
+                                <form method="POST" action="{{ url('/signup') }}">
+                                    @csrf
                                     <div class="mb-3">
                                         <label for="FullName" class="form-label">Full Name</label>
                                         <input type="text" name="fname" class="form-control" id="FullName"
@@ -40,35 +41,39 @@
                                     <div class="mb-4 d-flex justify-content-evenly">
                                         <div>
                                             <label for="Male" class="form-radio-label">Male</label>
-                                            <input type="radio" name="gender" value="Male" class="form-radio-input"
+                                            <input type="radio" name="gender" value="0" class="form-radio-input"
                                                 id="Male" required>
                                         </div>
                                         <div>
                                             <label for="Female" class="form-radio-label">Female</label>
-                                            <input type="radio" name="gender" value="female" placeholder="Female"
+                                            <input type="radio" name="gender" value="1" placeholder="Female"
                                                 class="form-radio-input" id="Female" required>
                                         </div>
                                     </div>
 
                                     <div class="mb-4">
                                         <label for="Country" class="form-label">Country</label>
-                                        <select class="form-select" name="country" id="Country" required>
-                                            <option value="0" disabled selected>Country</option>
+                                        <select class="form-select" name="country" id="country" required>
+                                            <option value="" disabled selected>Country</option>
+                                            @foreach ($countries as $country)
+                                                <option value="{{ $country->id }}">{{ $country->country }}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                     <div class="mb-4">
                                         <label for="State" class="form-label">State</label>
-                                        <select class="form-select" id="State" name="state" required>
+                                        <select class="form-select" id="state" name="state" required>
                                             <option value="0" disabled selected>State</option>
                                         </select>
                                     </div>
                                     <div class="mb-4">
                                         <label for="City" class="form-label">City</label>
-                                        <select class="form-select" id="City" name="city" required>
+                                        <select class="form-select" id="city" name="city" required>
                                             <option value="0" disabled selected>City</option>
                                         </select>
                                     </div>
-                                    <input type="submit" class="btn btn-primary w-100 py-8 fs-4 mb-4 rounded-2" value="Sign Up">
+                                    <input type="submit" class="btn btn-primary w-100 py-8 fs-4 mb-4 rounded-2"
+                                        value="Sign Up">
                                     <div class="d-flex align-items-center justify-content-center">
                                         <p class="fs-4 mb-0 fw-bold">Already have an Account?</p>
                                         <a class="text-primary fw-bold ms-2" href="{{ url('/login') }}">Sign
@@ -82,4 +87,49 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('js')
+    <script>
+        $('#country').on('change', function() {
+            var id = $('#country').find(':selected').val()
+            $.ajax({
+                type: 'GET',
+                url: `{{ url('/api/get-state') }}/${id}`,
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                success: function(data) {
+                    var $select = $('#state');
+                    $select.find('option').remove();
+
+                    $.each(data, function(index, value) {
+                        $select.append(`<option value="${value.id}">${value.state}</option>`);
+                        console.log(value.state);
+                    });
+                }
+            });
+        })
+
+
+        $('#state').on('change', function() {
+            var id = $('#state').find(':selected').val()
+            $.ajax({
+                type: 'GET',
+                url: `{{ url('/api/get-city') }}/${id}`,
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                success: function(data) {
+                    var $select = $('#city');
+                    $select.find('option').remove();
+
+                    $.each(data, function(index, value) {
+                        $select.append(`<option value="${value.id}">${value.city}</option>`);
+                        console.log(value.state);
+                    });
+                }
+            });
+        })
+    </script>
 @endsection
