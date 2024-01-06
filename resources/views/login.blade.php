@@ -13,7 +13,13 @@
                                     <img src="{{ asset('assets/images/logos/dark-logo.svg') }}" width="180"
                                         alt="">
                                 </a>
-                                <form>
+                                @if ($errors->any())
+                                @foreach ($errors->all() as $error)
+                                    <div>{{ $error }}</div>
+                                @endforeach
+                            @endif
+                                <form method="POST" action="{{route('login')}}">
+                                    @csrf
                                     <div class="mb-3">
                                         <label for="Email" class="form-label">Email</label>
                                         <input type="email" class="form-control" name="email" id="Email"

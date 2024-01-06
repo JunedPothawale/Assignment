@@ -13,42 +13,65 @@
                                 <a href="./index.html" class="text-nowrap logo-img text-center d-block py-3 w-100">
                                     <img src="../assets/images/logos/dark-logo.svg" width="180" alt="">
                                 </a>
+
+                                @isset($status)
+                                    <div class="alert alert-success" role="alert">{{ $status }}</div>
+                                @endisset
                                 <form method="POST" action="{{ url('/signup') }}">
                                     @csrf
                                     <div class="mb-3">
                                         <label for="FullName" class="form-label">Full Name</label>
                                         <input type="text" name="fname" class="form-control" id="FullName"
                                             aria-describedby="textHelp" required>
+                                        @error('fname')
+                                            <p class="text-danger fw-semibold ms-2 mt-1">{{ $message }}</p>
+                                        @enderror
                                     </div>
                                     <div class="mb-3">
                                         <label for="Email" class="form-label">Email Address</label>
                                         <input type="email" name="email" class="form-control" id="Email"
                                             aria-describedby="emailHelp" required>
+                                        @error('email')
+                                            <p class="text-danger fw-semibold ms-2 mt-1">{{ $message }}</p>
+                                        @enderror
                                     </div>
                                     <div class="mb-4">
                                         <label for="Password" class="form-label">Password</label>
                                         <input type="password" name="password" class="form-control" id="Password" required>
+                                        @error('password')
+                                            <p class="text-danger fw-semibold ms-2 mt-1">{{ $message }}</p>
+                                        @enderror
                                     </div>
                                     <div class="mb-4">
                                         <label for="ConfirmPassword" class="form-label">Confirm Password</label>
-                                        <input type="password" name="comfirm_password" class="form-control"
+                                        <input type="password" name="password_confirmation" class="form-control"
                                             id="ConfirmPassword" required>
+                                        @error('password_confirmation')
+                                            <p class="text-danger fw-semibold ms-2 mt-1">{{ $message }}</p>
+                                        @enderror
                                     </div>
                                     <div class="mb-4">
                                         <label for="DOB" class="form-label">Birth Date</label>
-                                        <input type="date" class="form-control" id="DOB" required>
+                                        <input type="date" name="dob" class="form-control" id="DOB" required>
+                                        @error('dob')
+                                            <p class="text-danger fw-semibold ms-2 mt-1">{{ $message }}</p>
+                                        @enderror
                                     </div>
                                     <div class="mb-4 d-flex justify-content-evenly">
                                         <div>
                                             <label for="Male" class="form-radio-label">Male</label>
                                             <input type="radio" name="gender" value="0" class="form-radio-input"
                                                 id="Male" required>
+
                                         </div>
                                         <div>
                                             <label for="Female" class="form-radio-label">Female</label>
                                             <input type="radio" name="gender" value="1" placeholder="Female"
                                                 class="form-radio-input" id="Female" required>
                                         </div>
+                                        @error('gender')
+                                            <p class="text-danger fw-semibold ms-2 mt-1">{{ $message }}</p>
+                                        @enderror
                                     </div>
 
                                     <div class="mb-4">
@@ -59,18 +82,27 @@
                                                 <option value="{{ $country->id }}">{{ $country->country }}</option>
                                             @endforeach
                                         </select>
+                                        @error('country')
+                                            <p class="text-danger fw-semibold ms-2 mt-1">{{ $message }}</p>
+                                        @enderror
                                     </div>
                                     <div class="mb-4">
                                         <label for="State" class="form-label">State</label>
                                         <select class="form-select" id="state" name="state" required>
                                             <option value="0" disabled selected>State</option>
                                         </select>
+                                        @error('state')
+                                            <p class="text-danger fw-semibold ms-2 mt-1">{{ $message }}</p>
+                                        @enderror
                                     </div>
                                     <div class="mb-4">
                                         <label for="City" class="form-label">City</label>
                                         <select class="form-select" id="city" name="city" required>
                                             <option value="0" disabled selected>City</option>
                                         </select>
+                                        @error('city')
+                                            <p class="text-danger fw-semibold ms-2 mt-1">{{ $message }}</p>
+                                        @enderror
                                     </div>
                                     <input type="submit" class="btn btn-primary w-100 py-8 fs-4 mb-4 rounded-2"
                                         value="Sign Up">

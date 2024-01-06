@@ -18,10 +18,15 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return redirect('/login');
 });
-Route::get('/signup', [AuthController::class,'signUpView']);
-Route::view('/login', 'login');
-Route::post('/signup', [AuthController::class, 'signUp']);
-Route::view('/dashboard', 'dashboard.index');
-Route::get('/mailto', function () {
-    (new MailController)->signupMail('Juned Pothawale', 'mojuned251@gmail.com', "Hello");
+
+
+Route::middleware(['guest'])->group(function () {
+    Route::get('/signup', [AuthController::class, 'signUpView']);
+    Route::post('/signup', [AuthController::class, 'signUp'])->name('signup');
+    Route::view('/login', 'login');
+    Route::get('/logout', [AuthController::class, 'logOut']);
+    Route::post('/login', [AuthController::class, 'logIn'])->name('login');
+});
+Route::middleware(['auth'])->group(function () {
+    Route::view('/dashboard', 'dashboard.index');
 });
