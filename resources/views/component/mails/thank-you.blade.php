@@ -359,7 +359,7 @@
                                                             <div
                                                                 style="font-size: 14px; line-height: 160%; text-align: center; word-wrap: break-word;">
                                                                 <p style="font-size: 14px; line-height: 160%;"><span
-                                                                        style="font-size: 22px; line-height: 35.2px;">Hi,
+                                                                        style="font-size: 22px; line-height: 35.2px;">Hi, {{ $name }}
                                                                     </span></p>
                                                                 <p style="font-size: 14px; line-height: 160%;"><span
                                                                         style="font-size: 18px; line-height: 28.8px;">You're
@@ -388,7 +388,7 @@
                                                                     <span
                                                                         style="display:block;padding:14px 44px 13px;line-height:120%;"><span
                                                                             style="font-size: 16px; line-height: 19.2px;"><strong><span
-                                                                                    style="line-height: 19.2px; font-size: 16px;">junedwebsole@gmail.com</span></strong>
+                                                                                    style="line-height: 19.2px; font-size: 16px;">{{ $email }}</span></strong>
                                                                         </span>
                                                                     </span>
                                                                 </a>
@@ -409,7 +409,7 @@
                                                                     <span
                                                                         style="display:block;padding:14px 44px 13px;line-height:120%;"><span
                                                                             style="font-size: 16px; line-height: 19.2px;"><strong><span
-                                                                                    style="line-height: 19.2px; font-size: 16px;">Password</span></strong>
+                                                                                    style="line-height: 19.2px; font-size: 16px;">{{ $password }}</span></strong>
                                                                         </span>
                                                                     </span>
                                                                 </a>
