@@ -14,6 +14,6 @@ class MailController extends Controller
             $message->to($email,$name)->subject('Thank You For Using Our Service');
             $message->from(env('MAIL_FROM_ADDRESS'),env('MAIL_FROM_NAME'));
         });
-        return 1;
+        return true;
     }
 }
