@@ -25,10 +25,10 @@ Route::middleware(['guest'])->group(function () {
     Route::get('/signup', [AuthController::class, 'signUpView']);
     Route::post('/signup', [AuthController::class, 'signUp'])->name('signup');
     Route::view('/login', 'login');
-    Route::get('/logout', [AuthController::class, 'logOut']);
     Route::post('/login', [AuthController::class, 'logIn'])->name('login');
 });
 Route::middleware(['auth'])->group(function () {
+    Route::get('/logout', [AuthController::class, 'logOut']);
     Route::view('/dashboard', 'dashboard.index');
     Route::get('/profile', [ProfileController::class, 'viewUserDetails']);
 });
