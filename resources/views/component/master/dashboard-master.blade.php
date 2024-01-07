@@ -43,7 +43,7 @@
                         <li class="sidebar-item">
                             <a class="sidebar-link" href="{{ url('/profile') }}" aria-expanded="false">
                                 <span>
-                                    <i class="ti ti-layout-dashboard"></i>
+                                    <i class="ti ti-user fs-6"></i>
                                 </span>
                                 <span class="hide-menu">Profile</span>
                             </a>

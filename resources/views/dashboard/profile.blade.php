@@ -3,16 +3,16 @@
     <div class="container-fluid">
         <!--  Row 1 -->
         <div class="row">
-            <div class="col-lg-12 d-flex align-items-strech h-100">
-                <div class="card w-100">
-                    <div class="card-body">
-                        <div class="d-sm-flex d-block align-items-center justify-content-between mb-9">
-                            <div class="mb-3 mb-sm-0">
-                                <h5 class="card-title fw-semibold">Profile</h5>
-                            </div>
-{{-- Profile Card --}}
-                        </div>
-                    </div>
+            <div class="card w-50 h-100">
+                <div class="card-header">
+                    {{ $userdata->name }}
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">{{ $userdata->email }}</h5>
+                    <p class="card-text">{{ $userdata->city }}</p>
+                    <h5 class="card-text">{{ $userdata->state }}</h5>
+                    <p class="card-title">{{ $userdata->country }}</p>
+                    <a href="#" class="btn btn-primary w-full">{{ $userdata->gender }}</a>
                 </div>
             </div>
         </div>

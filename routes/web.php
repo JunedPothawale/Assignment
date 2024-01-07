@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\MailController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,5 +30,5 @@ Route::middleware(['guest'])->group(function () {
 });
 Route::middleware(['auth'])->group(function () {
     Route::view('/dashboard', 'dashboard.index');
-    Route::view('/profile', 'dashboard.profile');
+    Route::get('/profile', [ProfileController::class, 'viewUserDetails']);
 });
