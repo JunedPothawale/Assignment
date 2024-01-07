@@ -77,7 +77,6 @@ class AuthController extends Controller
                     return redirect('/login')->with('status', "Login Unsuccessful");
                 }
             } else {
-                dd($db[0]['id']);
                 return redirect('/login')->with('status', "Incorrect Creadintials");
             }
         }
