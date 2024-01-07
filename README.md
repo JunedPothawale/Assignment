@@ -19,90 +19,107 @@ To get started with the Assignment Project, follow these simple steps:
    ```
 
 2. Navigate to the project directory:
-        ```bash
-        cd Assignment
-        ```
-    
-3.Install dependencies using Composer:
-    Copy code
-        ```bash
-            composer install
-        ```
-    Copy the .env.example file to .env:
 
-    Copy code
-        ```bash
-            cp .env.example .env
-        ```
+   ```bash
+   cd Assignment
+   ```
 
-Generate the application key:
+3. Install dependencies using Composer:
 
-Copy code
-    ```bash
-        php artisan key:generate
-        ```
+   ```bash
+   composer install
+   ```
 
-Configure your database settings in the .env file.
+4. Copy the `.env.example` file to `.env`:
 
-Migrate the database:
+   ```bash
+   cp .env.example .env
+   ```
 
-```bash
-    Copy code
-    php artisan migrate
-    Seed the database with country, state, and city data:
+5. Generate the application key:
 
-```bash
-    Copy code
-    php artisan db:seed
-    Serve the application:
+   ```bash
+   php artisan key:generate
+   ```
 
-```bash
-    Copy code
-    php artisan serve
-    Visit http://localhost:8000 in your browser to start using the Assignment Project.
+6. Configure your database settings in the `.env` file.
 
-Usage
+7. Migrate the database:
+
+   ```bash
+   php artisan migrate
+   ```
+
+8. Seed the database with country, state, and city data:
+
+   ```bash
+   php artisan db:seed
+   ```
+
+9. Serve the application:
+
+   ```bash
+   php artisan serve
+   ```
+
+Visit `http://localhost:8000` in your browser to start using the Assignment Project.
+
+## Usage
+
 The Assignment Project facilitates CRUD operations for user sign-in and login, implementing MD5 hashing for authentication:
 
-    Sign Up
-        Navigate to the registration page.
-        Fill in the required details.
-        Click the "Sign Up" button to create a new user account.
-    Log In
-        Visit the login page.
-        Enter your credentials.
-        Click the "Log In" button to access your account.
-    Features
+### Sign Up
 
-        Dashboard:
-            uessful login, users will be redirected to the dashboard page.
-        Profile Page:
-            Users can view their details on the profile page.
-    
-    Contributing
-        Contributions to the Assignment Project are highly encouraged! If you have a feature you'd like to add, follow these steps:
+1. Navigate to the registration page.
+2. Fill in the required details.
+3. Click the "Sign Up" button to create a new user account.
 
-Fork the repository.
+### Log In
 
-Create a new branch for your feature:
+1. Visit the login page.
+2. Enter your credentials.
+3. Click the "Log In" button to access your account.
 
-```bash
-    Copy code
-    git checkout -b branch-name
-    Implement your feature and ensure it works as expected.
+### Features
 
-Update the README with documentation for your feature.
+- **Dashboard:**
+  - Upon successful login, users will be redirected to the dashboard page.
+  
+  
+- **Profile Page:**
+  - Users can view their details on the profile page.
 
-Commit your changes:
+## Contributing
 
-```bash
-    Copy code
-    git commit -m "Add feature-name"
-    Push to your branch:
+Contributions to the Assignment Project are highly encouraged! If you have a feature you'd like to add, follow these steps:
 
-```bash
-    Copy code
-    git push origin feature-name
-    Open a pull request on GitHub, providing a detailed description of your feature and changes.
+1. Fork the repository.
+2. Create a new branch for your feature:
 
-Feel free to contribute any feature you think will enhance the Assignment Project. Happy coding!
+   ```bash
+   git checkout -b branch-name
+   ```
+
+3. Implement your feature and ensure it works as expected.
+4. Add your changes:
+
+   ```bash
+   git add .
+   ```
+5. Update the README with documentation for your feature.
+6. Commit your changes:
+
+   ```bash
+   git commit -m "Add Feature Message To Show"
+   ```
+
+7. Push to your branch:
+
+   ```bash
+   git push origin branch-name
+   ```
+
+8. Open a pull request on GitHub, providing a detailed description of your feature and changes.
+
+# Feel free to contribute any feature you think will enhance the Assignment Project. Happy coding!
+
