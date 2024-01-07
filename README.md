@@ -16,28 +16,33 @@ To get started with the Assignment Project, follow these simple steps:
 
    ```bash
    git clone https://github.com/JunedPothawale/Assignment.git
+   ```
 
 2. Navigate to the project directory:
-
-    ```bash
+        ```bash
+        cd Assignment
+        ```
+    
+3.Install dependencies using Composer:
     Copy code
-    cd Assignment
-    Install dependencies using Composer:
-
-```bash
-    Copy code
-    composer install
+        ```bash
+            composer install
+        ```
     Copy the .env.example file to .env:
 
-```bash
     Copy code
-    cp .env.example .env
-    Generate the application key:
+        ```bash
+            cp .env.example .env
+        ```
 
-```bash
-    Copy code
-    php artisan key:generate
-    Configure your database settings in the .env file.
+Generate the application key:
+
+Copy code
+    ```bash
+        php artisan key:generate
+        ```
+
+Configure your database settings in the .env file.
 
 Migrate the database:
 
